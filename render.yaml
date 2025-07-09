@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flask-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: FLASK_KEY
+        value: "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+      - key: DB_URI
+        value: "sqlite:///posts.db"
