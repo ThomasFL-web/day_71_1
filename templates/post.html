@@ -1,6 +1,30 @@
 {% from "bootstrap5/form.html" import render_form %}
 {% include "header.html" %}
+<style>
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
 
+.blog-post-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.blog-post-content a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.blog-post-content em {
+  font-style: italic;
+}
+</style>
 <!-- Page Header-->
 <header class="masthead" style="background-image: url('{{post.img_url}}')">
   <div class="container position-relative px-4 px-lg-5">
