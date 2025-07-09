@@ -12,6 +12,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 import os
 from dotenv import load_dotenv
+from markupsafe import Markup
+
+
 load_dotenv()
 # Optional: add contact me email functionality (Day 60)
 # import smtplib
@@ -225,7 +228,7 @@ def add_new_post():
         new_post = BlogPost(
             title=form.title.data,
             subtitle=form.subtitle.data,
-            body=form.body.data,
+            body=Markup(form.body.data),
             img_url=form.img_url.data,
             author=current_user,
             date=date.today().strftime("%B %d, %Y")
