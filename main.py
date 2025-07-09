@@ -304,5 +304,18 @@ def contact():
 #         connection.sendmail(MAIL_ADDRESS, MAIL_APP_PW, email_message)
 
 
+@app.route("/debug-html/<int:post_id>")
+def debug_html(post_id):
+    post = db.get_or_404(BlogPost, post_id)
+    return f"""
+        <h2>Raw repr:</h2>
+        <pre>{repr(post.body)}</pre>
+        <h2>Rendered with |safe:</h2>
+        <div style='border:1px solid black;padding:10px;margin-top:10px'>
+            {post.body}
+        </div>
+    """
+
+
 if __name__ == "__main__":
     app.run(debug=False, port=5001)
